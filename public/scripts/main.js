@@ -38,3 +38,18 @@ function handleClick(event, check = true){
   //Abrir modal
   modal.open();
 }
+
+var idRoomButton = document.querySelector("#room-id");
+
+idRoomButton.addEventListener("click", copyText);
+
+function copyText(){
+  let el = document.createElement('textarea');
+  el.value = idRoomButton.dataset.id;
+  el.setAttribute('class', 'sr-only');
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  document.execCommand("copy");
+}
